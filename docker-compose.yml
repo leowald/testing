@@ -12,7 +12,7 @@ services:
     build: ./tests
     volumes:
       - ./tests/src:/app/front/src
-      - ./tests/tests:/app/front/test
+      - ./tests/tests:/app/front/tests
     ports:
      - '51204:51204'
     stdin_open: true 
