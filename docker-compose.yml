@@ -1,0 +1,20 @@
+services:
+  front:
+    build: ./tests
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./tests/src:/app/front/src
+  test:
+    depends_on:
+      - front
+    container_name: react-app-test
+    build: ./tests
+    volumes:
+      - ./tests/src:/app/front/src
+      - ./tests/tests:/app/front/test
+    ports:
+     - '51204:51204'
+    stdin_open: true 
+    tty: true
+    command: npm test
